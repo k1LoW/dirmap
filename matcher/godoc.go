@@ -17,7 +17,7 @@ func (m *GodocMatcher) Match(codes, comments []string) (string, error) {
 	in := false
 	for _, c := range codes {
 		s := strings.Trim(c, " \t")
-		if in == false && s == "" {
+		if !in && s == "" {
 			matched = []string{}
 			continue
 		}
@@ -25,7 +25,7 @@ func (m *GodocMatcher) Match(codes, comments []string) (string, error) {
 			matched = append(matched, s)
 			continue
 		}
-		if in == false && strings.HasPrefix(s, "package ") {
+		if !in && strings.HasPrefix(s, "package ") {
 			if len(matched) > 0 {
 				return strings.Join(matched, "\n"), nil
 			}
@@ -51,7 +51,7 @@ func (m *GodocMatcher) Match(codes, comments []string) (string, error) {
 			matched = append(matched, strings.Trim(strings.TrimSuffix(s, "/*"), " \t"))
 			continue
 		}
-		if in == false {
+		if !in {
 			if strings.HasPrefix(s, "//") {
 				matched = append(matched, strings.Trim(strings.TrimPrefix(s, "//"), " \t"))
 			}

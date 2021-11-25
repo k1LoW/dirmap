@@ -1,0 +1,10 @@
+codeToTestRatio:
+  code:
+    - '**/*.go'
+    - '!**/*_test.go'
+  test:
+    - '**/*_test.go'
+testExecutionTime:
+  acceptable: 1min30sec
+comment:
+  if: is_pull_request
