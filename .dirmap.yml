@@ -1,0 +1,9 @@
+targets:
+- file: .dirmap.md
+  matcher: markdown
+- file: README.md
+  matcher: markdown
+- file: doc.go
+  matcher: godoc  
+- file: '*.go'
+  matcher: godoc
