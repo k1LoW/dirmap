@@ -1,3 +1,4 @@
+// Implementation of scanning the target directory and its overview from the file system based on the configuration.
 package scanner
 
 import (

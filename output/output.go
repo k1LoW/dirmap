@@ -1,3 +1,4 @@
+// Output format of the directory map
 package output
 
 const (

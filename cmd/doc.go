@@ -1,9 +1,2 @@
-/*
-dirmap
-
-
-
-
-This is overview
-*/
+// Commands.
 package cmd

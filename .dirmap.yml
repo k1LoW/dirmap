@@ -7,3 +7,6 @@ targets:
   matcher: godoc  
 - file: '*.go'
   matcher: godoc
+ignores:
+  - dist
+  - dist/**/*

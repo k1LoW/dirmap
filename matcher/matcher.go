@@ -1,3 +1,4 @@
+// Implementation to find the string that will be the overview from the code or Markdown.
 package matcher
 
 const (
