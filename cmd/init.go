@@ -35,8 +35,8 @@ import (
 // initCmd represents the init command
 var initCmd = &cobra.Command{
 	Use:   "init",
-	Short: fmt.Sprintf("Generate dirmap config file (%s)", config.DefaultConfigFilePaths[0]),
-	Long:  fmt.Sprintf("Generate dirmap config file (%s).", config.DefaultConfigFilePaths[0]),
+	Short: fmt.Sprintf("generate dirmap config file (%s)", config.DefaultConfigFilePaths[0]),
+	Long:  fmt.Sprintf("generate dirmap config file (%s).", config.DefaultConfigFilePaths[0]),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		c := config.New()
 		if err := c.Load(""); err != nil {
