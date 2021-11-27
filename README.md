@@ -100,7 +100,7 @@ targets:
 
 ### regexp
 
-If it doesn't match any matcher, the value of `matcher:` will be considered a regular expression.
+If the value of `matcher:` does not match any matcher, it is considered a regular expression.
 
 Then, get the first line matched by the regular expression.
 
