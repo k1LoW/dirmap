@@ -4,7 +4,7 @@ targets:
 - file: README.md
   matcher: markdown
 - file: doc.go
-  matcher: godoc  
+  matcher: godoc
 - file: '*.go'
   matcher: godoc
 ignores:
