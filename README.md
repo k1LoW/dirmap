@@ -145,6 +145,12 @@ $ curl -L https://git.io/apk-add-from-url | sh -s -- https://github.com/k1LoW/di
 $ brew install k1LoW/tap/dirmap
 ```
 
+**go install:**
+
+```console
+$ go install github.com/k1LoW/dirmap@vX.X.X
+```
+
 **manually:**
 
 Download binary from [releases page](https://github.com/k1LoW/dirmap/releases)
