@@ -86,6 +86,12 @@ brews:
     homepage: https://github.com/k1LoW/dirmap
     description: dirmap is a tool for generating a directory map.
     license: MIT
+    install: |
+      bin.install 'dirmap'
+      output = Utils.safe_popen_read("#{bin}/dirmap", 'completion', 'bash')
+      (bash_completion/'dirmap').write output
+      output = Utils.safe_popen_read("#{bin}/dirmap", 'completion', 'zsh')
+      (zsh_completion/'_dirmap').write output
 nfpms:
   - id: dirmap-nfpms
     file_name_template: "{{ .ProjectName }}_{{ .Version }}-1_{{ .Arch }}"
