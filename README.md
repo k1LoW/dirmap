@@ -35,6 +35,45 @@ $ dirmap generate -t table
 | version/ | Version ( [ref](version/version.go) ) |
 ```
 
+## Usage
+
+### `dirmap generate`
+
+`dirmap` collects overviews for each directory and formats them for display.
+
+``` console
+$ dirmap generate
+.
+├── .github/
+│   └── workflows/
+├── cmd/ ... Commands.
+├── config/ ... Configuration file.
+├── matcher/ ... Implementation to find the string that will be the overview from the code or Markdown.
+├── output/ ... Output format of the directory map.
+├── scanner/ ... Implementation of scanning the target directory and its overview from the file system based on the configuration.
+├── scripts/ ... scripts for Dockerfile.
+└── version/ ... Versi
+```
+
+### `dirmap init`
+
+If you want to change the collection rules, you can create a configuration file ( `.dirmap.yml` ) to change it.
+
+``` console
+$ dirmap init
+Create .dirmap.yml
+$ cat .dirmap.yml
+targets:
+- file: .dirmap.md
+  matcher: markdown
+- file: README.md
+  matcher: markdown
+- file: doc.go
+  matcher: godoc
+- file: "*.go"
+  matcher: godoc
+```
+
 ## Configuration
 
 ### `targets:`
