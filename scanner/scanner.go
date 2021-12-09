@@ -38,6 +38,11 @@ func Scan(c *config.Config, fsys fs.FS) (fstest.MapFS, error) {
 		if filepath.Base(path) == ".git" {
 			return fs.SkipDir
 		}
+
+		if c.GitIgnore.MatchesPath(path) {
+			return fs.SkipDir
+		}
+
 		for _, p := range c.Ignores {
 			match, _ := doublestar.PathMatch(p, path)
 			if match {
