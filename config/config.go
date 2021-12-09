@@ -9,6 +9,7 @@ import (
 	"github.com/goccy/go-yaml"
 	"github.com/k1LoW/dirmap/matcher"
 	"github.com/k1LoW/expand"
+	gitignore "github.com/sabhiram/go-gitignore"
 )
 
 var DefaultConfigFilePaths = []string{".dirmap.yml", "dirmap.yml"}
@@ -20,6 +21,8 @@ type Config struct {
 	wd string
 	// config file path
 	path string
+
+	GitIgnore *gitignore.GitIgnore
 }
 
 type Target struct {
@@ -99,4 +102,17 @@ func (c *Config) Load(path string) error {
 
 func (c *Config) Loaded() bool {
 	return c.path != ""
+}
+
+func (c *Config) LoadGitIgnore() error {
+	_, err := os.Stat(".gitignore")
+	if err != nil {
+		return nil // Ignore when .gitignore does not exist
+	}
+	ignore, err := gitignore.CompileIgnoreFile(".gitignore")
+	if err != nil {
+		return err
+	}
+	c.GitIgnore = ignore
+	return nil
 }
