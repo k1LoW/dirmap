@@ -7,6 +7,7 @@ require (
 	github.com/goccy/go-yaml v1.9.4
 	github.com/hhatto/gocloc v0.4.1
 	github.com/k1LoW/expand v0.1.0
+	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06
 	github.com/spf13/cobra v1.2.1
 	github.com/xlab/treeprint v1.1.0
 )
