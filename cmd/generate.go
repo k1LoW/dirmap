@@ -49,6 +49,9 @@ var generateCmd = &cobra.Command{
 		if err := c.Load(configPath); err != nil {
 			return err
 		}
+		if err := c.LoadGitIgnore(); err != nil {
+			return err
+		}
 
 		dir := ""
 		if len(args) == 0 {
