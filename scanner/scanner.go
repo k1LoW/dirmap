@@ -39,7 +39,7 @@ func Scan(c *config.Config, fsys fs.FS) (fstest.MapFS, error) {
 			return fs.SkipDir
 		}
 
-		if c.GitIgnore.MatchesPath(path) {
+		if c.GitIgnore != nil && c.GitIgnore.MatchesPath(path) {
 			return fs.SkipDir
 		}
 
