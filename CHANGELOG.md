@@ -1,3 +1,6 @@
+## [v0.2.2](https://github.com/k1LoW/dirmap/compare/v0.2.1...v0.2.2) (2021-12-15)
+
+
 ## [v0.2.1](https://github.com/k1LoW/dirmap/compare/v0.2.0...v0.2.1) (2021-12-10)
 
 * Check c.GitIgnore is nil or not [#3](https://github.com/k1LoW/dirmap/pull/3) ([mizzy](https://github.com/mizzy))
