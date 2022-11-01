@@ -2,27 +2,24 @@ name: build
 
 on:
   push:
+    branches:
+      - main
   pull_request:
 
 jobs:
   job-test:
     name: Test
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        go_version: [1.17]
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Set up Go ${{ matrix.go_version }}
-        uses: actions/setup-go@v2
-        with:
-          go-version: ${{ matrix.go_version }}
-
       - name: Check out source code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          go-version-file: go.mod
 
       - name: Run lint
         uses: reviewdog/action-golangci-lint@v2
@@ -32,10 +29,8 @@ jobs:
 
       - name: Run octocov
         uses: k1LoW/octocov-action@v0
-        
+
       # - name: Run Trivy vulnerability scanner in repo mode
       #   uses: aquasecurity/trivy-action@master
       #   with:
       #     scan-type: 'fs'
-
-
