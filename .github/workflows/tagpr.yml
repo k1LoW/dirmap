@@ -87,4 +87,4 @@ jobs:
             org.opencontainers.image.name=dirmap
             org.opencontainers.image.revision=${{ github.sha }}
             org.opencontainers.image.version=${{ steps.latest_version.outputs.version }}
-            org.opencontainers.image.source=https://github.com/k1LoW/runn
+            org.opencontainers.image.source=https://github.com/k1LoW/dirmap
