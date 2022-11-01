@@ -1,3 +1,5 @@
+coverage:
+  if: true
 codeToTestRatio:
   code:
     - '**/*.go'
@@ -5,6 +7,16 @@ codeToTestRatio:
   test:
     - '**/*_test.go'
 testExecutionTime:
+  if: true
   acceptable: 1min30sec
+diff:
+  datastores:
+    - artifact://${GITHUB_REPOSITORY}
 comment:
   if: is_pull_request
+summary:
+  if: true
+report:
+  if: is_default_branch
+  datastores:
+    - artifact://${GITHUB_REPOSITORY}
