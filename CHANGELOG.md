@@ -1,3 +1,7 @@
+## [v0.3.0](https://github.com/k1LoW/dirmap/compare/v0.2.3...v0.3.0) - 2023-03-14
+- [BREAKING] Fix handling `ignores:` by @k1LoW in https://github.com/k1LoW/dirmap/pull/7
+- Update go and pkgs by @k1LoW in https://github.com/k1LoW/dirmap/pull/8
+
 ## [v0.2.3](https://github.com/k1LoW/dirmap/compare/v0.2.2...v0.2.3) - 2022-11-01
 - Use tagpr by @k1LoW in https://github.com/k1LoW/dirmap/pull/4
 - Update pkgs by @k1LoW in https://github.com/k1LoW/dirmap/pull/6
