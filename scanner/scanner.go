@@ -24,6 +24,7 @@ var (
 type DirInfo struct {
 	File     string
 	Overview string
+	Ignore   bool
 }
 
 func Scan(c *config.Config, fsys fs.FS) (fstest.MapFS, error) {
@@ -43,13 +44,22 @@ func Scan(c *config.Config, fsys fs.FS) (fstest.MapFS, error) {
 			return fs.SkipDir
 		}
 
+		key := strings.TrimSuffix(fmt.Sprintf("%s/%s", RootKey, strings.TrimSuffix(path, ".")), "/")
 		for _, p := range c.Ignores {
-			match, _ := doublestar.PathMatch(p, path)
+			match, err := doublestar.PathMatch(p, path)
+			if err != nil {
+				return err
+			}
 			if match {
+				dm[key] = &fstest.MapFile{
+					Mode: fs.ModeDir,
+					Sys: &DirInfo{
+						Ignore: true,
+					},
+				}
 				return nil
 			}
 		}
-		key := strings.TrimSuffix(fmt.Sprintf("%s/%s", RootKey, strings.TrimSuffix(path, ".")), "/")
 
 		dm[key] = &fstest.MapFile{
 			Mode: fs.ModeDir,
@@ -89,6 +99,7 @@ func Scan(c *config.Config, fsys fs.FS) (fstest.MapFS, error) {
 					Sys: &DirInfo{
 						File:     p,
 						Overview: o,
+						Ignore:   false,
 					},
 				}
 				return nil
