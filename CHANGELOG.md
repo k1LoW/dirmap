@@ -1,3 +1,6 @@
+## [v0.3.1](https://github.com/k1LoW/dirmap/compare/v0.3.0...v0.3.1) - 2023-03-14
+- Fix handling output table by @k1LoW in https://github.com/k1LoW/dirmap/pull/10
+
 ## [v0.3.0](https://github.com/k1LoW/dirmap/compare/v0.2.3...v0.3.0) - 2023-03-14
 - [BREAKING] Fix handling `ignores:` by @k1LoW in https://github.com/k1LoW/dirmap/pull/7
 - Update go and pkgs by @k1LoW in https://github.com/k1LoW/dirmap/pull/8
