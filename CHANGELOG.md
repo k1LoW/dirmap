@@ -1,3 +1,6 @@
+## [v0.3.2](https://github.com/k1LoW/dirmap/compare/v0.3.1...v0.3.2) - 2024-01-16
+- Fix config.GitIgnore by @k1LoW in https://github.com/k1LoW/dirmap/pull/12
+
 ## [v0.3.1](https://github.com/k1LoW/dirmap/compare/v0.3.0...v0.3.1) - 2023-03-14
 - Fix handling output table by @k1LoW in https://github.com/k1LoW/dirmap/pull/10
 
