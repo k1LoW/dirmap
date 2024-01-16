@@ -22,7 +22,7 @@ type Config struct {
 	// config file path
 	path string
 
-	GitIgnore *gitignore.GitIgnore
+	GitIgnore *gitignore.GitIgnore `yaml:"-"`
 }
 
 type Target struct {
