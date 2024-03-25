@@ -1,3 +1,6 @@
+## [v0.3.3](https://github.com/k1LoW/dirmap/compare/v0.3.2...v0.3.3) - 2024-03-25
+- Fix for not ignoring directories that should be ignored when outputting in tree format by @kiokuless in https://github.com/k1LoW/dirmap/pull/14
+
 ## [v0.3.2](https://github.com/k1LoW/dirmap/compare/v0.3.1...v0.3.2) - 2024-01-16
 - Fix config.GitIgnore by @k1LoW in https://github.com/k1LoW/dirmap/pull/12
 
