@@ -5,4 +5,4 @@ package version
 const Name string = "dirmap"
 
 // Version for this
-var Version = "0.3.2"
+var Version = "0.3.3"
