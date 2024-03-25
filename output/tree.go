@@ -25,6 +25,9 @@ func WriteTree(fsys fs.FS, wr io.Writer) error {
 		if err != nil {
 			return err
 		}
+		if di.Sys() != nil && di.Sys().(*scanner.DirInfo).Ignore {
+			return nil
+		}
 		name := fmt.Sprintf("%s/", d.Name())
 		if di.Sys() != nil && !di.Sys().(*scanner.DirInfo).Ignore {
 			dirInfo := di.Sys().(*scanner.DirInfo)
