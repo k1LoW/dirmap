@@ -2,9 +2,12 @@
 package config
 
 import (
+	"bufio"
 	"fmt"
+	"io/fs"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/goccy/go-yaml"
 	"github.com/k1LoW/dirmap/matcher"
@@ -104,12 +107,72 @@ func (c *Config) Loaded() bool {
 	return c.path != ""
 }
 
-func (c *Config) LoadGitIgnore() error {
-	_, err := os.Stat(".gitignore")
+// LoadGitIgnore loads all .gitignore files recursively
+func (c *Config) LoadGitIgnore(fsys fs.FS) error {
+	// Create a temporary file to store the contents with prefixed path
+	tempFile, err := os.CreateTemp("", "dirmap")
 	if err != nil {
-		return nil // Ignore when .gitignore does not exist
+		return err
 	}
-	ignore, err := gitignore.CompileIgnoreFile(".gitignore")
+	defer os.Remove(tempFile.Name())
+	defer tempFile.Close()
+	hasGitignore := false
+
+	if err := fs.WalkDir(fsys, ".", func(path string, d fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if filepath.Base(path) != ".gitignore" {
+			return nil
+		}
+		hasGitignore = true
+
+		// Get the prefix for the gitignore lines
+		// If the path is "a/b/.gitignore", the prefix should be "a/b/"
+		// Or if the path is just ".gitignore", no prefix is needed
+		prefixForGitignoreLines := ""
+		lastIndex := strings.LastIndex(path, "/")
+		if lastIndex != -1 {
+			prefixForGitignoreLines = path[:lastIndex+1]
+		}
+
+		// Open the base gitignore file
+		baseGitignore, err := os.Open(path)
+		if err != nil {
+			return err
+		}
+		defer baseGitignore.Close()
+
+		// Read the base gitignore file and write the contents to the temporary file
+		writer := bufio.NewWriter(tempFile)
+		scanner := bufio.NewScanner(baseGitignore)
+
+		// We want to skip empty lines, so use scanner.Scan()
+		for scanner.Scan() {
+			line := scanner.Text()
+			if line != "" {
+				_, err = writer.WriteString(prefixForGitignoreLines + line + "\n")
+				if err != nil {
+					return err
+				}
+			}
+		}
+
+		err = writer.Flush()
+		if err != nil {
+			return err
+		}
+
+		return nil
+	}); err != nil {
+		return err
+	}
+
+	if !hasGitignore {
+		return nil
+	}
+
+	ignore, err := gitignore.CompileIgnoreFile(tempFile.Name())
 	if err != nil {
 		return err
 	}
