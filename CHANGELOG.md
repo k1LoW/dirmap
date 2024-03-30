@@ -1,3 +1,6 @@
+## [v0.4.0](https://github.com/k1LoW/dirmap/compare/v0.3.3...v0.4.0) - 2024-03-30
+- Load all .gitignores before scanning by @kiokuless in https://github.com/k1LoW/dirmap/pull/16
+
 ## [v0.3.3](https://github.com/k1LoW/dirmap/compare/v0.3.2...v0.3.3) - 2024-03-25
 - Fix for not ignoring directories that should be ignored when outputting in tree format by @kiokuless in https://github.com/k1LoW/dirmap/pull/14
 
