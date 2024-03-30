@@ -49,9 +49,6 @@ var generateCmd = &cobra.Command{
 		if err := c.Load(configPath); err != nil {
 			return err
 		}
-		if err := c.LoadGitIgnore(); err != nil {
-			return err
-		}
 
 		dir := ""
 		if len(args) == 0 {
@@ -60,6 +57,9 @@ var generateCmd = &cobra.Command{
 			dir = args[0]
 		}
 		fsys := os.DirFS(dir)
+		if err := c.LoadGitIgnore(fsys); err != nil {
+			return err
+		}
 		dmfs, err := scanner.Scan(c, fsys)
 		if err != nil {
 			return err
