@@ -1,3 +1,6 @@
+## [v0.5.0](https://github.com/k1LoW/dirmap/compare/v0.4.0...v0.5.0) - 2024-12-13
+- Update pkgs and go directive version by @k1LoW in https://github.com/k1LoW/dirmap/pull/18
+
 ## [v0.4.0](https://github.com/k1LoW/dirmap/compare/v0.3.3...v0.4.0) - 2024-03-30
 - Load all .gitignores before scanning by @kiokuless in https://github.com/k1LoW/dirmap/pull/16
 
