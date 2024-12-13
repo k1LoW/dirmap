@@ -1,3 +1,4 @@
+version: 2
 before:
   hooks:
     - go mod download
@@ -51,10 +52,7 @@ archives:
   format: binary
 checksum:
   name_template: 'checksums.txt'
-snapshot:
-  name_template: "{{ .Version }}-next"
 changelog:
-  skip: true
 nfpms:
   - id: dirmap-nfpms
     file_name_template: "{{ .ProjectName }}_{{ .Version }}-1_{{ .Arch }}"
