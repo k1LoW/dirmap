@@ -1,3 +1,6 @@
+## [v0.6.0](https://github.com/k1LoW/dirmap/compare/v0.5.0...v0.6.0) - 2025-03-18
+- Bump github.com/expr-lang/expr from 1.16.9 to 1.17.0 by @dependabot in https://github.com/k1LoW/dirmap/pull/20
+
 ## [v0.5.0](https://github.com/k1LoW/dirmap/compare/v0.4.0...v0.5.0) - 2024-12-13
 - Update pkgs and go directive version by @k1LoW in https://github.com/k1LoW/dirmap/pull/18
 
