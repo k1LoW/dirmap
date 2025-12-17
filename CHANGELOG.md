@@ -2,6 +2,10 @@
 - chore: setup tagpr labels by @k1LoW in https://github.com/k1LoW/dirmap/pull/23
 - Bump github.com/expr-lang/expr from 1.17.0 to 1.17.7 by @dependabot[bot] in https://github.com/k1LoW/dirmap/pull/24
 
+## [v0.6.1](https://github.com/k1LoW/dirmap/compare/v0.6.0...v0.6.1) - 2025-12-17
+- chore: setup tagpr labels by @k1LoW in https://github.com/k1LoW/dirmap/pull/23
+- Bump github.com/expr-lang/expr from 1.17.0 to 1.17.7 by @dependabot[bot] in https://github.com/k1LoW/dirmap/pull/24
+
 ## [v0.6.0](https://github.com/k1LoW/dirmap/compare/v0.5.0...v0.6.0) - 2025-03-18
 - Bump github.com/expr-lang/expr from 1.16.9 to 1.17.0 by @dependabot in https://github.com/k1LoW/dirmap/pull/20
 
