@@ -1,8 +1,8 @@
 // Version
 package version
 
-// Name for this
+// Name for this.
 const Name string = "dirmap"
 
-// Version for this
+// Version for this.
 var Version = "0.6.0"

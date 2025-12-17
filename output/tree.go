@@ -25,12 +25,19 @@ func WriteTree(fsys fs.FS, wr io.Writer) error {
 		if err != nil {
 			return err
 		}
-		if di.Sys() != nil && di.Sys().(*scanner.DirInfo).Ignore {
+		var dirInfo *scanner.DirInfo
+		if di.Sys() != nil {
+			var ok bool
+			dirInfo, ok = di.Sys().(*scanner.DirInfo)
+			if !ok {
+				dirInfo = nil
+			}
+		}
+		if dirInfo != nil && dirInfo.Ignore {
 			return nil
 		}
 		name := fmt.Sprintf("%s/", d.Name())
-		if di.Sys() != nil && !di.Sys().(*scanner.DirInfo).Ignore {
-			dirInfo := di.Sys().(*scanner.DirInfo)
+		if dirInfo != nil && !dirInfo.Ignore {
 			o := strings.Split(dirInfo.Overview, "\n")
 			oo := ""
 			for _, l := range o {

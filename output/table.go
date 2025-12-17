@@ -30,7 +30,10 @@ func WriteTable(fsys fs.FS, wr io.Writer) error {
 		name := strings.TrimPrefix(strings.Replace(fmt.Sprintf("%s/", path), scanner.RootKey, "", 1), "/")
 		o := ""
 		if di.Sys() != nil {
-			dirInfo := di.Sys().(*scanner.DirInfo)
+			dirInfo, ok := di.Sys().(*scanner.DirInfo)
+			if !ok {
+				return nil
+			}
 			if dirInfo.Ignore {
 				return nil
 			}

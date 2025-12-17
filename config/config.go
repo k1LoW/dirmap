@@ -107,7 +107,7 @@ func (c *Config) Loaded() bool {
 	return c.path != ""
 }
 
-// LoadGitIgnore loads all .gitignore files recursively
+// LoadGitIgnore loads all .gitignore files recursively.
 func (c *Config) LoadGitIgnore(fsys fs.FS) error {
 	// Create a temporary file to store the contents with prefixed path
 	tempFile, err := os.CreateTemp("", "dirmap")

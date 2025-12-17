@@ -39,7 +39,7 @@ var (
 	format     string
 )
 
-// generateCmd represents the generate command
+// generateCmd represents the generate command.
 var generateCmd = &cobra.Command{
 	Use:   "generate [DIR]",
 	Short: "generate directory map",
