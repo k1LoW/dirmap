@@ -14,7 +14,7 @@ require (
 
 require (
 	github.com/buildkite/interpolate v0.1.4 // indirect
-	github.com/expr-lang/expr v1.17.0 // indirect
+	github.com/expr-lang/expr v1.17.7 // indirect
 	github.com/go-enry/go-enry/v2 v2.9.1 // indirect
 	github.com/go-enry/go-oniguruma v1.2.1 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
