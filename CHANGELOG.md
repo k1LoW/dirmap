@@ -1,3 +1,7 @@
+## [v0.6.2](https://github.com/k1LoW/dirmap/compare/v0.6.1...v0.6.2) - 2026-09-28
+
+- ci: generate CREDITS with gocredits v1.0.0 from a make target by @k1LoW in https://github.com/k1LoW/dirmap/pull/28
+
 ## [v0.6.1](https://github.com/k1LoW/dirmap/compare/v0.6.0...v0.6.1) - 2025-12-17
 - chore: setup tagpr labels by @k1LoW in https://github.com/k1LoW/dirmap/pull/23
 - Bump github.com/expr-lang/expr from 1.17.0 to 1.17.7 by @dependabot[bot] in https://github.com/k1LoW/dirmap/pull/24
